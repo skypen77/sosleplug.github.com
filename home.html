@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<section id="accueil">
+    <h2>la bonne </h2>
+    <p>Découvrez notre produit unique de qualité.</p>
+    
+    <!-- Carrousel -->
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for shoe in shoes %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <div class="card" style="width: 18rem;">
+                    <a href="https://t.me/manofyear77">
+                        <img src="{{ url_for('static', filename='images/' + shoe.default_image) }}" class="card-img-top" alt="{{ shoe.name }}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ shoe.name }}</h5>
+                        <p class="card-text">Prix : {{ shoe.price }}</p>
+                        <a href="https://t.me/manofyear77 " class="btn btn-primary">Commander</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Contrôles du carrousel -->
+       
+        
+    </div>
+
+    
+</section>
+{% endblock %}
